@@ -1,0 +1,65 @@
+.roundy {
+  border-radius: 10px;
+}
+
+.centering {
+  text-align: center;
+}
+
+.taglevel {
+  color: #fff;
+  font-family: "Cascadia Code", "Microsoft YaHei", monospace;
+  font-size: larger;
+  font-weight: bold;
+  line-height: 100%;
+  text-align: center;
+  min-width: 20px;
+}
+
+.tagamount {
+  font-family: "Cascadia Code", "Microsoft YaHei", monospace;
+  font-size: medium;
+  font-weight: normal;
+  text-align: center;
+  min-width: 20px;
+}
+
+.ttwhite {
+  color: #fff;
+}
+
+.ttentrees {
+  color: #dd7700;
+}
+
+.ttsmallplates {
+  color: #77dd00;
+}
+
+.ttsweets {
+  color: #dd3333;
+}
+
+.ttdrinks {
+  color: #0077dd;
+}
+
+.bgwhite {
+  background: #fff;
+}
+
+.bgentrees {
+  background: #dd7700;
+}
+
+.bgsmallplates {
+  background: #77dd00;
+}
+
+.bgsweets {
+  background: #dd3333;
+}
+
+.bgdrinks {
+  background: #0077dd;
+}

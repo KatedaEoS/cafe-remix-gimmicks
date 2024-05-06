@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" lang="zh-CN" />
+    <link rel="stylesheet" type="text/css" href="./template/style.css" />
+  </head>
+  <body>
+    <h1 class="centering">宝咖主线材料优选表</h1>
+    <p class="centering">
+      开发：空探的凯特 <br />
+      数据收集：Lati <br />
+      更新日期：2024-05-06
+    </p>
+    <p>
+      这里列举出了所有某个特调材料比之前关卡都多的关卡列表。参考此表有助于你快速完成某些任务。
+      数据可能缺少了某些出现在关卡三星挑战的非要求材料。如果你知道正确数据，请联系我们。
+    </p>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <table class="roundy bgdrinks">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">关卡编号</td>
+                    <td class="tagamount roundy bgwhite ttdrinks">材料数</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgdrinks">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">饮品</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgsweets">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">甜点</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgsmallplates">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">点心</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgentrees">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">主菜</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tbody>
+          {% for gimmick_solution in solutions %}
+          <tr>
+            <td style="height: 20px">
+              <img
+                src="resources/{{ gimmick_solution.gimmick_id }}.png"
+                style="max-height: 200%"
+              />
+            </td>
+            <td>
+              <table>
+                {% if not gimmick_solution.solution %}
+                <td>无</td>
+                {% endif %} {% for stage in gimmick_solution.solution %}
+                <td>
+                  <table class="roundy bg{{ stage.category_str }}">
+                    <tbody>
+                      <tr>
+                        <td class="taglevel">{{ stage.index }}</td>
+                        <td
+                          class="tagamount roundy bgwhite tt{{ stage.category_str }}"
+                        >
+                          {{ stage.amount }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                {% endfor %}
+              </table>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    <p class="centering">
+      在 MIT 协议下发布 - Copyright (c) 2024 Kate da Explorers of Sky
+    </p>
+  </body>
+</html>

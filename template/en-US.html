@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" lang="en-US" />
+    <link rel="stylesheet" type="text/css" href="./template/style.css" />
+  </head>
+  <body>
+    <h1 class="centering">Best Main Stages to Clear for Gimmick Missions</h1>
+    <p class="centering">
+      Developer: 空探的凯特 (Kate da EoS) <br />
+      Data Collector: Lati <br />
+      Update on 2024-05-06
+    </p>
+    <p>
+      Here is a list of all stages that have more of a certain gimmick than its
+      previous level. Referring to this table can help you complete certain
+      missions quickly. The data may be missing some non-required gimmicks in
+      three-star challenge of stages. If you know the correct data, please
+      contact Lati.
+    </p>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <table class="roundy bgdrinks">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">Stage Index</td>
+                    <td class="tagamount roundy bgwhite ttdrinks">Amount</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgdrinks">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">Drinks</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgsweets">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">Sweets</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgsmallplates">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">Small Plates</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <table class="roundy bgentrees">
+                <tbody>
+                  <tr>
+                    <td class="taglevel">Entrées</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tbody>
+          {% for gimmick_solution in solutions %}
+          <tr>
+            <td style="height: 20px">
+              <img
+                src="resources/{{ gimmick_solution.gimmick_id }}.png"
+                style="max-height: 200%"
+              />
+            </td>
+            <td>
+              <table>
+                {% if not gimmick_solution.solution %}
+                <td>None</td>
+                {% endif %} {% for stage in gimmick_solution.solution %}
+                <td>
+                  <table class="roundy bg{{ stage.category_str }}">
+                    <tbody>
+                      <tr>
+                        <td class="taglevel">{{ stage.index }}</td>
+                        <td
+                          class="tagamount roundy bgwhite tt{{ stage.category_str }}"
+                        >
+                          {{ stage.amount }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                {% endfor %}
+              </table>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    <p class="centering">
+      Released under MIT License - Copyright (c) 2024 Kate da Explorers of Sky
+    </p>
+  </body>
+</html>
