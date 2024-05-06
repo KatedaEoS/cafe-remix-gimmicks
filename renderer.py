@@ -1,7 +1,6 @@
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import numpy as np
-import math
 
 STAGE_COUNT = 2400
 GIMMICK_TYPE_COUNT = 38
@@ -81,13 +80,13 @@ class GimmickSolution:
         self.solution = []
 
 
-df = pd.read_excel("./cafe-db.xlsx", sheet_name=3, skiprows=1)
+df = pd.read_excel("cafe-db.xlsx", sheet_name=3, skiprows=1)
 
 if df.shape[0] != STAGE_COUNT:
     print(f"Error: Stage count not equal to {STAGE_COUNT}")
     raise
 
-if df.shape[1] != GIMMICK_TYPE_COUNT + 4:
+if df.shape[1] != GIMMICK_TYPE_COUNT + 5:
     print(f"Warning: Gimmick type count not equal to {GIMMICK_TYPE_COUNT}")
 
 stage = []
@@ -115,6 +114,6 @@ env = Environment(loader=FileSystemLoader("."))
 languages = ["zh-CN", "en-US"]
 
 for lang in languages:
-    template = env.get_template(f"./template/{lang}.html")
+    template = env.get_template(f"template/{lang}.html")
     with open(f"gimmicks_{lang}.html", "w", encoding="utf-8") as f:
         f.write(template.render(solutions=solutions_list))
