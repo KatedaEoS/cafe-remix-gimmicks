@@ -4,7 +4,7 @@
 
 *Note: Only tested on Python 3.11.*
 
-1. Get `cafe-db.xlsx` (rename if necessary) and place it in this drectory
+1. Get `cafe-db.xlsx` (rename if necessary) and place it in this directory
 2. Run `pip install -r requirements.txt`
 3. Run `python renderer.py`
 4. See the generated HTML pages
